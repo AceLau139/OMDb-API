@@ -14,7 +14,7 @@ async function getData(url) {
     //resultItem.className = 'resultItem';
     resultItem.innerHTML = '<li class="resultItem">'+ data.Search.Title +'</li>';
     console.log(resultItem);
-    result.insertAdjacentHTML('beforeend', resultItem);
+    result.insertAdjacentElement('beforeend', resultItem);
   }
 }
 
