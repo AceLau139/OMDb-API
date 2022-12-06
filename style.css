@@ -1,0 +1,3 @@
+.resultItem{
+    @apply block hover:bg-gray-200 rounded px-2 py-1;
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+  </head>
+
+  <body class="p-6 md:p-24 bg-gray-200">
+    
+    <form action="search" class="m-4">
+      <label>Search from OMDb</label>
+      <div class="flex">
+        <input type="text" id="search-bar" placeholder="Search for movie & TV series" required
+        class="text-xl block w-full appearance-none bg-white placeholder-gray-400 px-4 py-3 rounded-lg outline-none">
+      </div>
+    </form>
+
+    <div>
+      <ul class="result">
+
+      </ul>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
