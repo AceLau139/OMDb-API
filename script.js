@@ -1,48 +1,68 @@
-//http://www.omdbapi.com/?apikey=bf9d768b&s={keyword}
-//apikey=bf9d768b
 const Url = 'http://www.omdbapi.com/?apikey=bf9d768b'
 const searchBar = document.querySelector('#search-bar');
 const result = document.querySelector('.result');
 const moviesSection = document.querySelector('#movies-section');
+const tvSection = document.querySelector('#tv-section');
+const userInput = searchBar.value.trim();
 
-async function getData(url) {
+//Send request to the API & Get data from API
+async function getData(keyword, type) {
+  const url = `http://www.omdbapi.com/?apikey=bf9d768b&type=${type}&s=${keyword}`
+  console.log(url);
+  
   const res = await fetch(url);
   const data = await res.json();
+
+  console.log(`type: ${type}`);
   console.log(data);
 
-  result.innerHTML = '<h3 id="movies-section" class="sub-heading">Movies</h3>';
-
   if (data.Response == 'True') {
-    console.log(data.Search);
-
-    const resultItem = document.createElement('div'); 
-    resultItem.innerHTML = '<div class="resultItem">'+ data.Search[0].Title +'</div>';
-    resultItem.innerHTML += '<div class="resultItem">'+ data.Search[1].Title +'</div>';
-    resultItem.innerHTML += '<div class="resultItem">'+ data.Search[2].Title +'</div>';
-
-    console.log(resultItem);
-    result.insertAdjacentElement('beforeend', resultItem);
+    resultDisplay(data.Search, type);  
   }
 }
 
+//Display results
+function resultDisplay(film, type) {
+  resultList = film.slice(0, 3);
+  console.log(resultList);
+
+  //
+  const filmTitle = resultList.map(film => {
+    const filmName = boldString(film.Title, userInput);
+    console.log(filmName);
+
+    for(i=0; i<resultList.length; i++) {
+      `<div class="block hover:bg-gray-200 rounded px-2 py-1">${filmName}</div>`;
+    };
+  })
+
+  if (type == 'movie'){
+    moviesSection.insertAdjacentHTML('beforeend', filmTitle);
+  }
+  else if (type == 'series'){
+    tvSection.insertAdjacentHTML('beforeend', filmTitle);
+  }
+
+  console.log(resultItem);
+  result.insertAdjacentElement('beforeend', resultItem);
+
+}
+
+// Search function and sending request to the API
 function search() {
-  var userInput = searchBar.value.trim();
+  const userInput = searchBar.value.trim();
   console.log(userInput);
 
-  const movieUrl = Url + '&type=movie&s=' + userInput;
-  const tvUrl = Url + '&type=series&s=' + userInput;
+  getData(userInput, 'movie');
+  getData(userInput, 'tv');
 
-  getData(movieUrl)
-  getData(tvUrl)
+  if (userInput.length > 0) {
+    moviesSection.classList.remove('hidden');
+    tvSection.classList.remove('hidden');
+  }else {
+    moviesSection.classList.add('hidden');
+    tvSection.classList.add('hidden');
+  }
 }
 
 searchBar.addEventListener('input', search);
-
-
-// Create elements li + append
-
-
-// F.Render results
-//result.innerHTML
-
-
