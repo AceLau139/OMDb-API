@@ -1,3 +1,7 @@
 .resultItem{
     @apply block hover:bg-gray-200 rounded px-2 py-1;
 }
+
+.sub-heading{
+    @apply text-xs text-gray-600 pl-2 py-1;
+}
