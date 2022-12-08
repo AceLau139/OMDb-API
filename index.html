@@ -1,31 +1,45 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
     <title>Ace</title>
   </head>
 
+  <!-- using tailwind CSS -->
   <body class="p-6 md:p-24 bg-gray-200">
-    
     <form action="search" class="m-4">
       <label>Search from OMDb</label>
       <div class="flex">
-        <input type="text" id="search-bar" placeholder="Search for movie & TV series" required
-        class="text-xl block w-full appearance-none bg-white placeholder-gray-400 px-4 py-3 rounded-lg outline-none">
+        <input
+          type="text"
+          id="search-bar"
+          placeholder="Search for movie & TV series"
+          required
+          class="text-xl block w-full appearance-none bg-white placeholder-gray-400 px-4 py-3 rounded-lg outline-none"
+        />
       </div>
     </form>
 
-    <div class="result">
-      <div id="movies-section" class="text-xs text-gray-600 pl-2 py-1 hidden">Movies</div>
-      <ul id="movies-result"></ul>
+    <div class="result hidden">
+      <h4>Movie</h4>
+      <ul
+        id="movies-result"
+        class="block hover:bg-gray-200 rounded px-2 py-1 hidden"
+      ></ul>
 
-      <div id="tv-section" class="text-xs text-gray-600 pl-2 py-1 hidden">TV series</div>
-      <ul id="tv-result"></ul>
+      <h4>TV Show</h4>
+      <ul
+        id="tv-result"
+        class="block hover:bg-gray-200 rounded px-2 py-1 hidden"
+      ></ul>
     </div>
 
-    <script src="./script.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
