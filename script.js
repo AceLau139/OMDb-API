@@ -10,10 +10,8 @@ const tvResult = document.querySelector('#tv-result');
 async function getData(keyword, type) {
   const url = `http://www.omdbapi.com/?apikey=bf9d768b&type=${type}&s=${keyword}`
   //console.log(url);
-  
   const res = await fetch(url);
   const data = await res.json();
-
   console.log(`type: ${type}`);
   //console.log(data);
 
@@ -39,8 +37,7 @@ function resultDisplay(film, type) {
     const boldWord = bolding(movie.Title, userInput);
     console.log(boldWord);
     return `<li class="block hover:bg-gray-200 rounded px-2 py-1">${boldWord}</li>`;
-  });
-  resultList.join('');
+  }).join('');
 
   if (type == 'movie'){
     moviesResult.innerHTML = '';
