@@ -45,18 +45,10 @@ function resultDisplay(film, type) {
   if (type == 'movie'){
     moviesResult.innerHTML = '';
     moviesResult.insertAdjacentHTML('beforeend', movieTitle);
-
-    //moviesResult.innerHTML = `<li class="block hover:bg-gray-200 rounded px-2 py-1">${resultList[0].Title}</div>`;
-    //moviesResult.innerHTML += `<li class="block hover:bg-gray-200 rounded px-2 py-1">${resultList[1].Title}</li>`;
-    //moviesResult.innerHTML += `<li class="block hover:bg-gray-200 rounded px-2 py-1">${resultList[2].Title}</div>`;
   }
   else if (type == 'series'){
     tvResult.innerHTML = '';
     tvResult.insertAdjacentHTML('beforeend', movieTitle);
-
-    //tvResult.innerHTML = `<li class="block hover:bg-gray-200 rounded px-2 py-1">${resultList[0].Title}</div>`;
-    //tvResult.innerHTML += `<li class="block hover:bg-gray-200 rounded px-2 py-1">${resultList[1].Title}</li>`;
-    //tvResult.innerHTML += `<li class="block hover:bg-gray-200 rounded px-2 py-1">${resultList[2].Title}</div>`;
   }
 }
 
